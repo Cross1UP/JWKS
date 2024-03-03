@@ -1,3 +1,6 @@
+//Ensure you have the following installed:
+//npm install express crypto jsonwebtoken node-jose body-parser
+
 const express = require('express');
 const crypto = require('crypto');
 const jwt = require('jsonwebtoken');
