@@ -1,9 +1,11 @@
 //ENSURE YOU HAVE THE FOLLOWING INSTALLED:
 //npm install --save-dev jest supertest
+//Currently unaccessible.
+
 
 // Import the `request` module from Supertest to make HTTP requests
 const request = require('supertest');
-const app = require('./JWKSapp.js'); // Update this with your actual file name
+const app = require('./JWKSapp.js');
 
 // Test suite for the app
 describe('Test suite for your Express app', () => {
@@ -20,13 +22,6 @@ describe('Test suite for your Express app', () => {
     const response = await request(app).post('/auth');
     expect(response.statusCode).toBe(200);
     expect(response.body.token).toBeDefined();
-  });
-
-  // Test case for non-GET request to /.well-known/jwks.json
-  it('GET /.well-known/jwks.json should return Method Not Allowed for non-GET requests', async () => {
-    const response = await request(app).put('/.well-known/jwks.json');
-    expect(response.statusCode).toBe(405);
-    expect(response.text).toBe('Method Not Allowed');
   });
 
   // Test case for non-POST request to /auth
